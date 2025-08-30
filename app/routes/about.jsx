@@ -88,14 +88,7 @@ export default function About() {
               register={register}
               placeholder="Hizmetler Başlık"
             />
-            <AppInput
-              label="Hizmetler Başlık"
-              name="servicesTitle"
-              error={errors.servicesTitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="Hizmetler Başlık"
-            />
+
             <AppTextarea
               label="Hizmetler Alt Başlık"
               name="servicesSubtitle"
