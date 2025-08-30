@@ -12,6 +12,7 @@
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
     "@tanstack/react-table": "^8.21.3",
+    "@uiw/react-md-editor": "^4.0.5",
     "@uploadcare/react-uploader": "^1.10.2",
     "@upstash/redis": "^1.35.3",
     "axios": "^1.11.0",
@@ -20,7 +21,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.62.0",
-    "react-router": "^7.7.1"
+    "react-router": "^7.7.1",
+    "rehype-sanitize": "^6.0.0"
   },
   "devDependencies": {
     "@react-router/dev": "^7.7.1",

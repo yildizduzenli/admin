@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import DashboardLayout from '../layouts/Dashboard.layout';
 import {
   AppBreadCrumb,
+  AppEditor,
   AppInput,
   AppScreenLoading,
   AppTextarea,
@@ -9,31 +10,32 @@ import {
 import {useForm} from 'react-hook-form';
 import {getRedis, setRedis} from '../service/redis';
 
-export default function Home() {
+export default function About() {
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: {errors},
+    control,
     reset,
   } = useForm();
 
-  useEffect(() => {
-    getHomeData();
-  }, []);
-
-  const getHomeData = async () => {
+  const getAboutData = async () => {
     setInitialLoading(true);
-    const response = await getRedis('homeData');
+    const response = await getRedis('aboutData');
     reset(response);
     setInitialLoading(false);
   };
 
+  useEffect(() => {
+    getAboutData();
+  }, []);
+
   const onSubmit = async data => {
     try {
       setIsSubmitLoading(true);
-      const response = await setRedis('homeData', data);
+      const response = await setRedis('aboutData', data);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -54,44 +56,37 @@ export default function Home() {
             className="w-full bg-white p-5 rounded-lg border border-gray-200 mt-5"
             onSubmit={handleSubmit(onSubmit)}>
             <AppInput
-              label="Hero Başlık"
-              name="heroTitle"
+              label="Hakkımda Başlık"
+              name="aboutTitle"
               error={errors.heroTitle}
               rules={{required: true}}
               register={register}
-              placeholder="Hero Başlık"
+              placeholder="Hakkımda Başlık"
             />
-            <AppTextarea
-              label="Hero Alt Başlık"
-              name="heroSubtitle"
+            <AppInput
+              label="Hakkımda Alt Başlık"
+              name="aboutSubtitle"
               error={errors.heroSubtitle}
               rules={{required: true}}
               register={register}
-              placeholder="Hero Alt Başlık"
+              placeholder="Hakkımda Alt Başlık"
             />
-            <AppTextarea
-              label="Alıntı"
-              name="quote"
-              error={errors.quote}
+
+            <AppEditor
+              label={'Hakkımda İçerik'}
+              name="aboutContent"
+              error={errors.content}
               rules={{required: true}}
-              register={register}
-              placeholder="Alıntı"
+              control={control}
+              placeholder="Hakkımda İçerik"
             />
             <AppInput
-              label="Hakkımızda Başlık"
-              name="aboutTitle"
+              label="Hizmetler Başlık"
+              name="servicesTitle"
               error={errors.aboutTitle}
               rules={{required: true}}
               register={register}
-              placeholder="Hakkımızda Başlık"
-            />
-            <AppTextarea
-              label="Hakkımızda Alt Başlık"
-              name="aboutSubtitle"
-              error={errors.aboutSubtitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="Hakkımızda Alt Başlık"
+              placeholder="Hizmetler Başlık"
             />
             <AppInput
               label="Hizmetler Başlık"
@@ -108,22 +103,6 @@ export default function Home() {
               rules={{required: true}}
               register={register}
               placeholder="Hizmetler Alt Başlık"
-            />
-            <AppInput
-              label="CTA Başlık"
-              name="ctaTitle"
-              error={errors.ctaTitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="CTA Başlık"
-            />
-            <AppTextarea
-              label="CTA Alt Başlık"
-              name="ctaSubtitle"
-              error={errors.ctaSubtitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="CTA Alt Başlık"
             />
 
             <button

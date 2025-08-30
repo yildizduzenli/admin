@@ -9,31 +9,32 @@ import {
 import {useForm} from 'react-hook-form';
 import {getRedis, setRedis} from '../service/redis';
 
-export default function Home() {
+export default function Contact() {
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
   const {
     register,
     handleSubmit,
     formState: {errors},
+    control,
     reset,
   } = useForm();
 
-  useEffect(() => {
-    getHomeData();
-  }, []);
-
-  const getHomeData = async () => {
+  const getContact = async () => {
     setInitialLoading(true);
-    const response = await getRedis('homeData');
+    const response = await getRedis('contact');
     reset(response);
     setInitialLoading(false);
   };
 
+  useEffect(() => {
+    getContact();
+  }, []);
+
   const onSubmit = async data => {
     try {
       setIsSubmitLoading(true);
-      const response = await setRedis('homeData', data);
+      const response = await setRedis('contact', data);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -54,76 +55,68 @@ export default function Home() {
             className="w-full bg-white p-5 rounded-lg border border-gray-200 mt-5"
             onSubmit={handleSubmit(onSubmit)}>
             <AppInput
-              label="Hero Başlık"
-              name="heroTitle"
-              error={errors.heroTitle}
+              label="İletişim Sayfa Başlığı"
+              name="contactTitle"
+              error={errors.contactTitle}
               rules={{required: true}}
               register={register}
-              placeholder="Hero Başlık"
+              placeholder="İletişim Sayfa Başlığı"
             />
             <AppTextarea
-              label="Hero Alt Başlık"
-              name="heroSubtitle"
-              error={errors.heroSubtitle}
+              label="İletişim Sayfa Alt Başlığı"
+              name="contactSubtitle"
+              error={errors.contactSubtitle}
               rules={{required: true}}
               register={register}
-              placeholder="Hero Alt Başlık"
-            />
-            <AppTextarea
-              label="Alıntı"
-              name="quote"
-              error={errors.quote}
-              rules={{required: true}}
-              register={register}
-              placeholder="Alıntı"
+              placeholder="İletişim Sayfa Alt Başlığı"
             />
             <AppInput
-              label="Hakkımızda Başlık"
-              name="aboutTitle"
-              error={errors.aboutTitle}
+              label="Adres"
+              name="address"
+              error={errors.address}
               rules={{required: true}}
               register={register}
-              placeholder="Hakkımızda Başlık"
-            />
-            <AppTextarea
-              label="Hakkımızda Alt Başlık"
-              name="aboutSubtitle"
-              error={errors.aboutSubtitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="Hakkımızda Alt Başlık"
+              placeholder="Adres"
             />
             <AppInput
-              label="Hizmetler Başlık"
-              name="servicesTitle"
-              error={errors.servicesTitle}
+              label="E-posta"
+              name="email"
+              error={errors.email}
               rules={{required: true}}
               register={register}
-              placeholder="Hizmetler Başlık"
-            />
-            <AppTextarea
-              label="Hizmetler Alt Başlık"
-              name="servicesSubtitle"
-              error={errors.servicesSubtitle}
-              rules={{required: true}}
-              register={register}
-              placeholder="Hizmetler Alt Başlık"
+              placeholder="E-posta"
             />
             <AppInput
-              label="CTA Başlık"
-              name="ctaTitle"
-              error={errors.ctaTitle}
+              label="Telefon"
+              name="phone"
+              error={errors.phone}
               rules={{required: true}}
               register={register}
-              placeholder="CTA Başlık"
+              placeholder="Telefon"
             />
-            <AppTextarea
-              label="CTA Alt Başlık"
-              name="ctaSubtitle"
-              error={errors.ctaSubtitle}
+            <AppInput
+              label="Instagram"
+              name="instagram"
+              error={errors.instagram}
               rules={{required: true}}
               register={register}
-              placeholder="CTA Alt Başlık"
+              placeholder="Instagram"
+            />
+            <AppInput
+              label="Tiktok"
+              name="tiktok"
+              error={errors.tiktok}
+              rules={{required: true}}
+              register={register}
+              placeholder="Tiktok"
+            />
+            <AppInput
+              label="Linkedin"
+              name="linkedin"
+              error={errors.linkedin}
+              rules={{required: true}}
+              register={register}
+              placeholder="Linkedin"
             />
 
             <button
