@@ -23,8 +23,9 @@ const Login = () => {
   const onSubmit = async (submitData) => {
     setIsLoading(true);
     try {
-      const envMail = import.meta.env.VITE_ADMIN_MAIL;
+      const envMail = import.meta.env.VITE_ADMIN_EMAIL;
       const envPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+      console.log(envMail, envPassword);
 
       if (submitData.mail === envMail && submitData.password === envPassword) {
         localStorage.setItem(
