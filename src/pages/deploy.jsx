@@ -1,18 +1,16 @@
-import { AppBreadCrumb } from "../components";
-import DashboardLayout from "../layouts/Dashboard.layout";
 import { useEffect, useState } from "react";
 
 const Deploy = () => {
   const [isDeploying, setIsDeploying] = useState(false);
 
-  // useEffect(() => {
-  //   const deployCookie = localStorage.getItem("deploy");
-  //   if (deployCookie === "deploying") {
-  //     setIsDeploying(true);
-  //   } else {
-  //     setIsDeploying(false);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const deployCookie = localStorage.getItem("deploy");
+    if (deployCookie === "deploying") {
+      setIsDeploying(true);
+    } else {
+      setIsDeploying(false);
+    }
+  }, []);
 
   const deploy = async () => {
     try {
@@ -23,8 +21,7 @@ const Deploy = () => {
         localStorage.setItem("deploy", "deployed");
       }, 10 * 60 * 100);
 
-      const DEPLOY_URL =
-        "https://api.vercel.com/v1/integrations/deploy/prj_bdWa7IjtIA6692PhuwynoNlNGVHa/mWiPIrg7qy";
+      const DEPLOY_URL = import.meta.env.VITE_DEPLOY_URL;
       await fetch(DEPLOY_URL, {
         method: "GET",
       });

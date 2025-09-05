@@ -77,15 +77,15 @@ export const menuData = [
       },
     ],
   },
-  // {
-  //   title: 'YAYIN',
-  //   items: [
-  //     {
-  //       icon: Globe,
-  //       label: 'Yayınla',
-  //       breadCrumb: 'Yayınla',
-  //       path: '/deploy',
-  //     },
-  //   ],
-  // },
+  {
+    title: "YAYIN",
+    items: [
+      {
+        icon: Globe,
+        label: "Yayınla",
+        breadCrumb: "Yayınla",
+        path: "/deploy",
+      },
+    ],
+  },
 ];
