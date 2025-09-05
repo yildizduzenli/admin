@@ -70,6 +70,14 @@ export default function Home() {
               register={register}
               placeholder="Hero Alt Başlık"
             />
+            <AppInput
+              label="Video URL (Youtube)"
+              name="heroVideo"
+              error={errors.heroVideo}
+              rules={{ required: true }}
+              register={register}
+              placeholder="Video URL (Youtube)"
+            />
             <AppTextarea
               label="Alıntı"
               name="quote"

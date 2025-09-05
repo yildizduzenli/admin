@@ -132,9 +132,17 @@ const AppSidebar = () => {
       >
         <div className="flex mt-4 justify-center items-center">
           {isCollapsed && !isHovering ? (
-            <img src="/logo.svg" alt="Logo" className="h-20 w-20" />
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-16 w-16 object-contain"
+            />
           ) : (
-            <img src="/logo.svg" alt="Logo" className="h-40 w-40" />
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-20 w-20 object-contain"
+            />
           )}
         </div>
 

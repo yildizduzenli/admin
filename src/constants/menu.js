@@ -51,7 +51,7 @@ export const menuData = [
           },
           {
             label: "Hizmet Sayfa İçeriği",
-            path: "/service/cont  ent",
+            path: "/service/content",
             breadCrumb: "Hizmet Sayfa İçeriği",
             isVisible: true,
           },
