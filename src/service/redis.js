@@ -1,8 +1,7 @@
 import { Redis } from "@upstash/redis/cloudflare";
 
-const redisUrl = "https://super-antelope-27836.upstash.io";
-const redisToken =
-  "AWy8AAIncDE1NWU1M2FmMDRkODY0MTgxOGQ2NGY3ZjM5YTM4M2RmNnAxMjc4MzY";
+const redisUrl = import.meta.env.VITE_UPSTASH_REDIS_REST_URL;
+const redisToken = import.meta.env.VITE_UPSTASH_REDIS_REST_TOKEN;
 
 const redis = new Redis({
   url: redisUrl,

@@ -1,13 +1,13 @@
-import {FileUploaderRegular} from '@uploadcare/react-uploader';
-import {AppLabel} from '.';
-import {useState} from 'react';
-import {X} from 'lucide-react';
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import { AppLabel } from ".";
+import { useState } from "react";
+import { X } from "lucide-react";
 
-const AppFile = ({onChange, isRequired, label, defaultValue}) => {
-  const publicKey = 'edb6f0955e3632496e34';
+const AppFile = ({ onChange, isRequired, label, defaultValue }) => {
+  const publicKey = import.meta.env.VITE_UPLOADCARE_PUBLIC_KEY;
   const [url, setUrl] = useState(defaultValue);
 
-  const handleFileAdded = file => {
+  const handleFileAdded = (file) => {
     setUrl(file?.cdnUrl);
     onChange(file?.cdnUrl);
   };

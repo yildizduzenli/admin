@@ -66,10 +66,10 @@ const routes = [
         path: "contact",
         element: <Contact />,
       },
-      {
-        path: "deploy",
-        element: <Deploy />,
-      },
+      // {
+      //   path: "deploy",
+      //   element: <Deploy />,
+      // },
     ],
   },
   {
