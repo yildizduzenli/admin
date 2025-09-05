@@ -13,7 +13,7 @@
     "@tanstack/react-table": "^8.21.3",
     "@uiw/react-md-editor": "^4.0.8",
     "@uploadcare/react-uploader": "^1.10.2",
-    "@upstash/redis": "^1.35.3",
+    "@upstash/redis": "^1.10.1",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
