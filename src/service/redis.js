@@ -1,4 +1,4 @@
-import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis/cloudflare";
 
 const redisUrl = "https://super-antelope-27836.upstash.io";
 const redisToken =
