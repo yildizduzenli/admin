@@ -7,7 +7,6 @@ const redisToken =
 const redis = new Redis({
   url: redisUrl,
   token: redisToken,
-  enableTelemetry: false,
 });
 
 export const setRedis = async (key, value) => {
